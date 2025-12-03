@@ -1,0 +1,66 @@
+# Environment files
+.env
+ai_env/
+venv
+uv.lock
+
+# lecture assets
+assets/
+__pycache__/
+*.pyc
+.DS_Store
+.idea/
+.vscode/
+*.log
+*.sqlite3
+*.db
+*.env
+*.env.*
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytype/
+.pyre/
+.pyright/
+.pyre_configuration
+.pyrightconfig.json
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+# VS Code settings
+.vscode/
+# macOS files
+.DS_Store
+# Logs
+*.log
+# SQLite database files
+*.sqlite3
+*.db
+# Environment variables files
+*.env
+*.env.*
+# Python egg files
+*.egg-info/
+dist/
+build/
+.eggs/
+# Testing caches
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.coverage
+storage/
