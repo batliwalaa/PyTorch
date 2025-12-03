@@ -21,7 +21,7 @@ This section covers the core concepts of PyTorch:
 - `non-linear-with-relu.ipynb` - Explore non-linear models using ReLU activation
 - `utils.py` - Utility functions for non-linear model training
 
-### 4. **Image Classification**
+### 4. **MNIST Image Classification**
 
 - `image-classification.ipynb` - Build an image classification model using MNIST dataset
 - `data/MNIST/` - MNIST dataset files (training and test images/labels)
