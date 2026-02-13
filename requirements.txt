@@ -5,3 +5,5 @@ ipykernel
 pandas
 numpy
 scipy
+onnxruntime
+pillow

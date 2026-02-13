@@ -14,28 +14,7 @@ This folder contains a small production-focused pipeline for training and evalua
 
 - Fine-grained classes: 102 flower species with subtle visual differences.
 - Class imbalance: some classes have many examples, others very few.
-- Intra-class variation: viewpoint, size, background clutter, and occlusion vary widely.
 - Small dataset size: careful augmentation and validation are required to avoid overfitting.
-
-## Pipeline (high level)
-
-Raw images (oxford*102_flowers/jpg)
-|
-|-- Optional: offline augmentation generator
-| -> oxford_102_flowers/augmented/v*<hash>/images
-| (provenance.csv, dataset.json)
-|
-OxfordFlowersDataset
-| (raw_transform = deterministic,
-| aug_transform = randomized)
-|
-MixedFlowersDataset (raw + augmented, aug_ratio)
-|
-DataLoader
-|
-Training & evaluation (image-classification.ipynb)
-|
-Diagnostics, per-class metrics, ONNX export
 
 ## Key files
 
@@ -45,48 +24,9 @@ Diagnostics, per-class metrics, ONNX export
 - `transform_train.py`, `transform_prod.py` — augmentation and production transforms.
 - `download_dataset.py` — download and safely extract the raw dataset.
 
-## How to train (quickstart)
+## Open and run the notebook
 
-1. Install requirements (recommended in a venv):
-
-```bash
-pip install -r requirements.txt
-```
-
-2. Download the dataset:
-
-```bash
-python -c "from download_dataset import download_dataset; download_dataset()"
-```
-
-3. (Optional) Generate offline augmentation (produces `oxford_102_flowers/augmented/v_<hash>`):
-
-```bash
-python - <<'PY'
-from compute_class_balanced_copies import compute_class_balanced_copies
-from hashing import canonicalize_copies_per_class
-from offline_augmentation_generator import generate_augmented_dataset
-
-copies = compute_class_balanced_copies('oxford_102_flowers/imagelabels.mat')
-copies = canonicalize_copies_per_class(copies)
-generate_augmented_dataset('oxford_102_flowers/jpg', 'oxford_102_flowers', copies)
-PY
-```
-
-4. Open and run the notebook `fundamentals/oxford-flowers-image-classification/image-classification.ipynb`. The notebook handles transform selection (GPU vs CPU), dataset construction, training loop, diagnostics, and ONNX export.
-
-Tip: for quick I/O verification use `python bench_data_load.py` which exercises the dataset and loader.
-
-## How to run ONNX inference
-
-> Model exported to ONNX and validated outside PyTorch to ensure framework-independent inference.
-
-1. Export the model to ONNX from the notebook (`flowers.onnx` is produced by the export cell).
-2. Install runtime requirements:
-
-```bash
-pip install onnxruntime pillow torchvision numpy
-```
+`fundamentals/oxford-flowers-image-classification/oxford-flowers-image-classification-v1/image-classification.ipynb`. The notebook handles transform selection (GPU vs CPU), dataset construction, training loop, diagnostics, and ONNX export.
 
 ## Notes & recommendations
 
