@@ -64,3 +64,8 @@ build/
 .pyre/
 .coverage
 storage/
+
+# project-specific data directories and files
+oxford_102_flowers/
+EMNIST/
+data/MNIST/

@@ -1,0 +1,1419 @@
+
+pytorch	2.9.1+cpu:⁄î
+Ö
+x
+stem.0.weight
+stem.0.weight_biasgetitemnode_Conv_181"Conv*
+group†*
+auto_pad"NOTSET†*
+	dilations@@†*
+strides@@†*
+pads@@@@†J‚
+	namespace‘: CustomFlowerCNN.CustomFlowerCNN/stem: torch.nn.modules.container.Sequential/stem.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJŒ
+pkg.torch.onnx.class_hierarchy´['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J†
+pkg.torch.onnx.fx_nodeÖ%_native_batch_norm_legit_no_training : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d, %p_stem_1_weight, %p_stem_1_bias, %b_stem_1_running_mean, %b_stem_1_running_var, 0.1, 1e-05), kwargs = {})J\
+pkg.torch.onnx.name_scopes>['', 'stem', 'stem.1', '_native_batch_norm_legit_no_training']J—
+pkg.torch.onnx.stack_trace≤File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 225, in forward
+    x = self.stem(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 193, in forward
+    return F.batch_norm(
+ö
+getitemrelu	node_relu"ReluJú
+	namespaceé: CustomFlowerCNN.CustomFlowerCNN/stem: torch.nn.modules.container.Sequential/stem.2: torch.nn.modules.activation.ReLU/relu: aten.relu.defaultJ®
+pkg.torch.onnx.class_hierarchyÖ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.ReLU', 'aten.relu.default']JÑ
+pkg.torch.onnx.fx_nodej%relu : [num_users=2] = call_function[target=torch.ops.aten.relu.default](args = (%getitem,), kwargs = {})J<
+pkg.torch.onnx.name_scopes['', 'stem', 'stem.2', 'relu']JË
+pkg.torch.onnx.stack_trace…File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 225, in forward
+    x = self.stem(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\activation.py", line 144, in forward
+    return F.relu(input, inplace=self.inplace)
+ﬁ
+relu
+features.0.conv1.weight
+features.0.conv1.weight_bias	getitem_3node_Conv_183"Conv*
+group†*
+auto_pad"NOTSET†*
+	dilations@@†*
+strides@@†*
+pads@@@@†Jû
+	namespaceê: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.0: CustomFlowerCNN.ResidualConvBlock/features.0.bn1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_1: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJÛ
+pkg.torch.onnx.class_hierarchy–['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']Jƒ
+pkg.torch.onnx.fx_node©%_native_batch_norm_legit_no_training_1 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_1, %p_features_0_bn1_weight, %p_features_0_bn1_bias, %b_features_0_bn1_running_mean, %b_features_0_bn1_running_var, 0.1, 1e-05), kwargs = {})Jx
+pkg.torch.onnx.name_scopesZ['', 'features', 'features.0', 'features.0.bn1', '_native_batch_norm_legit_no_training_1']J
+pkg.torch.onnx.stack_trace—File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 114, in forward
+    out = self.bn1(out)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 193, in forward
+    return F.batch_norm(
+¿
+	getitem_3relu_1node_relu_1"ReluJß
+	namespaceô: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.0: CustomFlowerCNN.ResidualConvBlock/relu_1: aten.relu.defaultJ©
+pkg.torch.onnx.class_hierarchyÜ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'aten.relu.default']Jà
+pkg.torch.onnx.fx_noden%relu_1 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_3,), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.0', 'relu_1']JÓ
+pkg.torch.onnx.stack_traceœFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 115, in forward
+    out = F.relu(out, inplace=True)
+‡
+relu_1
+features.0.conv2.weight
+features.0.conv2.weight_bias	getitem_6node_Conv_185"Conv*
+group†*
+auto_pad"NOTSET†*
+	dilations@@†*
+strides@@†*
+pads@@@@†Jû
+	namespaceê: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.0: CustomFlowerCNN.ResidualConvBlock/features.0.bn2: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_2: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJÛ
+pkg.torch.onnx.class_hierarchy–['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']Jƒ
+pkg.torch.onnx.fx_node©%_native_batch_norm_legit_no_training_2 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_2, %p_features_0_bn2_weight, %p_features_0_bn2_bias, %b_features_0_bn2_running_mean, %b_features_0_bn2_running_var, 0.1, 1e-05), kwargs = {})Jx
+pkg.torch.onnx.name_scopesZ['', 'features', 'features.0', 'features.0.bn2', '_native_batch_norm_legit_no_training_2']J
+pkg.torch.onnx.stack_trace—File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 118, in forward
+    out = self.bn2(out)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 193, in forward
+    return F.batch_norm(
+¶
+	getitem_6
+reluaddnode_add"AddJ¢
+	namespaceî: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.0: CustomFlowerCNN.ResidualConvBlock/add: aten.add.TensorJß
+pkg.torch.onnx.class_hierarchyÑ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'aten.add.Tensor']Jâ
+pkg.torch.onnx.fx_nodeo%add : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%getitem_6, %relu), kwargs = {})JC
+pkg.torch.onnx.name_scopes%['', 'features', 'features.0', 'add']Jﬁ
+pkg.torch.onnx.stack_traceøFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 122, in forward
+    out += identity
+¥
+addrelu_2node_relu_2"ReluJß
+	namespaceô: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.0: CustomFlowerCNN.ResidualConvBlock/relu_2: aten.relu.defaultJ©
+pkg.torch.onnx.class_hierarchyÜ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'aten.relu.default']JÇ
+pkg.torch.onnx.fx_nodeh%relu_2 : [num_users=2] = call_function[target=torch.ops.aten.relu.default](args = (%add,), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.0', 'relu_2']JÓ
+pkg.torch.onnx.stack_traceœFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 123, in forward
+    out = F.relu(out, inplace=True)
+˚
+relu_2
+features.1.skip.0.weight
+features.1.skip.0.weight_bias	getitem_9node_Conv_187"Conv*
+group†*
+auto_pad"NOTSET†*
+	dilations@@†*
+strides@@†*
+pads@ @ @ @ †Jÿ
+	namespace : CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.1: CustomFlowerCNN.ResidualConvBlock/features.1.skip: torch.nn.modules.container.Sequential/features.1.skip.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_3: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJú
+pkg.torch.onnx.class_hierarchy˘['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J–
+pkg.torch.onnx.fx_nodeµ%_native_batch_norm_legit_no_training_3 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_3, %p_features_1_skip_1_weight, %p_features_1_skip_1_bias, %b_features_1_skip_1_running_mean, %b_features_1_skip_1_running_var, 0.1, 1e-05), kwargs = {})Jé
+pkg.torch.onnx.name_scopesp['', 'features', 'features.1', 'features.1.skip', 'features.1.skip.1', '_native_batch_norm_legit_no_training_3']JÉ
+pkg.torch.onnx.stack_trace‰File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 111, in forward
+    identity = self.skip(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 193, in forward
+    return F.batch_norm(
+·
+relu_2
+features.1.conv1.weight
+features.1.conv1.weight_bias
+getitem_12node_Conv_189"Conv*
+group†*
+auto_pad"NOTSET†*
+	dilations@@†*
+strides@@†*
+pads@@@@†Jû
+	namespaceê: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.1: CustomFlowerCNN.ResidualConvBlock/features.1.bn1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_4: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJÛ
+pkg.torch.onnx.class_hierarchy–['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']Jƒ
+pkg.torch.onnx.fx_node©%_native_batch_norm_legit_no_training_4 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_4, %p_features_1_bn1_weight, %p_features_1_bn1_bias, %b_features_1_bn1_running_mean, %b_features_1_bn1_running_var, 0.1, 1e-05), kwargs = {})Jx
+pkg.torch.onnx.name_scopesZ['', 'features', 'features.1', 'features.1.bn1', '_native_batch_norm_legit_no_training_4']J
+pkg.torch.onnx.stack_trace—File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 114, in forward
+    out = self.bn1(out)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 193, in forward
+    return F.batch_norm(
+¬
+
+getitem_12relu_3node_relu_3"ReluJß
+	namespaceô: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.1: CustomFlowerCNN.ResidualConvBlock/relu_3: aten.relu.defaultJ©
+pkg.torch.onnx.class_hierarchyÜ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'aten.relu.default']Jâ
+pkg.torch.onnx.fx_nodeo%relu_3 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_12,), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.1', 'relu_3']JÓ
+pkg.torch.onnx.stack_traceœFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 115, in forward
+    out = F.relu(out, inplace=True)
+·
+relu_3
+features.1.conv2.weight
+features.1.conv2.weight_bias
+getitem_15node_Conv_191"Conv*
+group†*
+auto_pad"NOTSET†*
+	dilations@@†*
+strides@@†*
+pads@@@@†Jû
+	namespaceê: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.1: CustomFlowerCNN.ResidualConvBlock/features.1.bn2: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_5: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJÛ
+pkg.torch.onnx.class_hierarchy–['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']Jƒ
+pkg.torch.onnx.fx_node©%_native_batch_norm_legit_no_training_5 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_5, %p_features_1_bn2_weight, %p_features_1_bn2_bias, %b_features_1_bn2_running_mean, %b_features_1_bn2_running_var, 0.1, 1e-05), kwargs = {})Jx
+pkg.torch.onnx.name_scopesZ['', 'features', 'features.1', 'features.1.bn2', '_native_batch_norm_legit_no_training_5']J
+pkg.torch.onnx.stack_trace—File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 118, in forward
+    out = self.bn2(out)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 193, in forward
+    return F.batch_norm(
+º
+
+getitem_15
+	getitem_9add_1
+node_add_1"AddJ§
+	namespaceñ: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.1: CustomFlowerCNN.ResidualConvBlock/add_1: aten.add.TensorJß
+pkg.torch.onnx.class_hierarchyÑ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'aten.add.Tensor']Jë
+pkg.torch.onnx.fx_nodew%add_1 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%getitem_15, %getitem_9), kwargs = {})JE
+pkg.torch.onnx.name_scopes'['', 'features', 'features.1', 'add_1']Jﬁ
+pkg.torch.onnx.stack_traceøFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 122, in forward
+    out += identity
+∏
+add_1relu_4node_relu_4"ReluJß
+	namespaceô: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.1: CustomFlowerCNN.ResidualConvBlock/relu_4: aten.relu.defaultJ©
+pkg.torch.onnx.class_hierarchyÜ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'aten.relu.default']JÑ
+pkg.torch.onnx.fx_nodej%relu_4 : [num_users=2] = call_function[target=torch.ops.aten.relu.default](args = (%add_1,), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.1', 'relu_4']JÓ
+pkg.torch.onnx.stack_traceœFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 123, in forward
+    out = F.relu(out, inplace=True)
+¸
+relu_4
+features.2.skip.0.weight
+features.2.skip.0.weight_bias
+getitem_18node_Conv_193"Conv*
+group†*
+auto_pad"NOTSET†*
+	dilations@@†*
+strides@@†*
+pads@ @ @ @ †Jÿ
+	namespace : CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.2: CustomFlowerCNN.ResidualConvBlock/features.2.skip: torch.nn.modules.container.Sequential/features.2.skip.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_6: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJú
+pkg.torch.onnx.class_hierarchy˘['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J–
+pkg.torch.onnx.fx_nodeµ%_native_batch_norm_legit_no_training_6 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_6, %p_features_2_skip_1_weight, %p_features_2_skip_1_bias, %b_features_2_skip_1_running_mean, %b_features_2_skip_1_running_var, 0.1, 1e-05), kwargs = {})Jé
+pkg.torch.onnx.name_scopesp['', 'features', 'features.2', 'features.2.skip', 'features.2.skip.1', '_native_batch_norm_legit_no_training_6']JÉ
+pkg.torch.onnx.stack_trace‰File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 111, in forward
+    identity = self.skip(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 193, in forward
+    return F.batch_norm(
+·
+relu_4
+features.2.conv1.weight
+features.2.conv1.weight_bias
+getitem_21node_Conv_195"Conv*
+group†*
+auto_pad"NOTSET†*
+	dilations@@†*
+strides@@†*
+pads@@@@†Jû
+	namespaceê: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.2: CustomFlowerCNN.ResidualConvBlock/features.2.bn1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_7: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJÛ
+pkg.torch.onnx.class_hierarchy–['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']Jƒ
+pkg.torch.onnx.fx_node©%_native_batch_norm_legit_no_training_7 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_7, %p_features_2_bn1_weight, %p_features_2_bn1_bias, %b_features_2_bn1_running_mean, %b_features_2_bn1_running_var, 0.1, 1e-05), kwargs = {})Jx
+pkg.torch.onnx.name_scopesZ['', 'features', 'features.2', 'features.2.bn1', '_native_batch_norm_legit_no_training_7']J
+pkg.torch.onnx.stack_trace—File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 114, in forward
+    out = self.bn1(out)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 193, in forward
+    return F.batch_norm(
+¬
+
+getitem_21relu_5node_relu_5"ReluJß
+	namespaceô: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.2: CustomFlowerCNN.ResidualConvBlock/relu_5: aten.relu.defaultJ©
+pkg.torch.onnx.class_hierarchyÜ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'aten.relu.default']Jâ
+pkg.torch.onnx.fx_nodeo%relu_5 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_21,), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.2', 'relu_5']JÓ
+pkg.torch.onnx.stack_traceœFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 115, in forward
+    out = F.relu(out, inplace=True)
+·
+relu_5
+features.2.conv2.weight
+features.2.conv2.weight_bias
+getitem_24node_Conv_197"Conv*
+group†*
+auto_pad"NOTSET†*
+	dilations@@†*
+strides@@†*
+pads@@@@†Jû
+	namespaceê: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.2: CustomFlowerCNN.ResidualConvBlock/features.2.bn2: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_8: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJÛ
+pkg.torch.onnx.class_hierarchy–['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']Jƒ
+pkg.torch.onnx.fx_node©%_native_batch_norm_legit_no_training_8 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_8, %p_features_2_bn2_weight, %p_features_2_bn2_bias, %b_features_2_bn2_running_mean, %b_features_2_bn2_running_var, 0.1, 1e-05), kwargs = {})Jx
+pkg.torch.onnx.name_scopesZ['', 'features', 'features.2', 'features.2.bn2', '_native_batch_norm_legit_no_training_8']J
+pkg.torch.onnx.stack_trace—File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 118, in forward
+    out = self.bn2(out)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 193, in forward
+    return F.batch_norm(
+æ
+
+getitem_24
+
+getitem_18add_2
+node_add_2"AddJ§
+	namespaceñ: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.2: CustomFlowerCNN.ResidualConvBlock/add_2: aten.add.TensorJß
+pkg.torch.onnx.class_hierarchyÑ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'aten.add.Tensor']Jí
+pkg.torch.onnx.fx_nodex%add_2 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%getitem_24, %getitem_18), kwargs = {})JE
+pkg.torch.onnx.name_scopes'['', 'features', 'features.2', 'add_2']Jﬁ
+pkg.torch.onnx.stack_traceøFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 122, in forward
+    out += identity
+∏
+add_2relu_6node_relu_6"ReluJß
+	namespaceô: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.2: CustomFlowerCNN.ResidualConvBlock/relu_6: aten.relu.defaultJ©
+pkg.torch.onnx.class_hierarchyÜ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'aten.relu.default']JÑ
+pkg.torch.onnx.fx_nodej%relu_6 : [num_users=2] = call_function[target=torch.ops.aten.relu.default](args = (%add_2,), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.2', 'relu_6']JÓ
+pkg.torch.onnx.stack_traceœFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 123, in forward
+    out = F.relu(out, inplace=True)
+¸
+relu_6
+features.3.skip.0.weight
+features.3.skip.0.weight_bias
+getitem_27node_Conv_199"Conv*
+group†*
+auto_pad"NOTSET†*
+	dilations@@†*
+strides@@†*
+pads@ @ @ @ †Jÿ
+	namespace : CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.3: CustomFlowerCNN.ResidualConvBlock/features.3.skip: torch.nn.modules.container.Sequential/features.3.skip.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_9: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJú
+pkg.torch.onnx.class_hierarchy˘['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J–
+pkg.torch.onnx.fx_nodeµ%_native_batch_norm_legit_no_training_9 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_9, %p_features_3_skip_1_weight, %p_features_3_skip_1_bias, %b_features_3_skip_1_running_mean, %b_features_3_skip_1_running_var, 0.1, 1e-05), kwargs = {})Jé
+pkg.torch.onnx.name_scopesp['', 'features', 'features.3', 'features.3.skip', 'features.3.skip.1', '_native_batch_norm_legit_no_training_9']JÉ
+pkg.torch.onnx.stack_trace‰File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 111, in forward
+    identity = self.skip(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 193, in forward
+    return F.batch_norm(
+Â
+relu_6
+features.3.conv1.weight
+features.3.conv1.weight_bias
+getitem_30node_Conv_201"Conv*
+group†*
+auto_pad"NOTSET†*
+	dilations@@†*
+strides@@†*
+pads@@@@†Jü
+	namespaceë: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.3: CustomFlowerCNN.ResidualConvBlock/features.3.bn1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_10: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJÛ
+pkg.torch.onnx.class_hierarchy–['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
+pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_10 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_10, %p_features_3_bn1_weight, %p_features_3_bn1_bias, %b_features_3_bn1_running_mean, %b_features_3_bn1_running_var, 0.1, 1e-05), kwargs = {})Jy
+pkg.torch.onnx.name_scopes[['', 'features', 'features.3', 'features.3.bn1', '_native_batch_norm_legit_no_training_10']J
+pkg.torch.onnx.stack_trace—File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 114, in forward
+    out = self.bn1(out)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 193, in forward
+    return F.batch_norm(
+¬
+
+getitem_30relu_7node_relu_7"ReluJß
+	namespaceô: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.3: CustomFlowerCNN.ResidualConvBlock/relu_7: aten.relu.defaultJ©
+pkg.torch.onnx.class_hierarchyÜ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'aten.relu.default']Jâ
+pkg.torch.onnx.fx_nodeo%relu_7 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%getitem_30,), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.3', 'relu_7']JÓ
+pkg.torch.onnx.stack_traceœFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 115, in forward
+    out = F.relu(out, inplace=True)
+Â
+relu_7
+features.3.conv2.weight
+features.3.conv2.weight_bias
+getitem_33node_Conv_203"Conv*
+group†*
+auto_pad"NOTSET†*
+	dilations@@†*
+strides@@†*
+pads@@@@†Jü
+	namespaceë: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.3: CustomFlowerCNN.ResidualConvBlock/features.3.bn2: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_11: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJÛ
+pkg.torch.onnx.class_hierarchy–['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J∆
+pkg.torch.onnx.fx_node´%_native_batch_norm_legit_no_training_11 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_11, %p_features_3_bn2_weight, %p_features_3_bn2_bias, %b_features_3_bn2_running_mean, %b_features_3_bn2_running_var, 0.1, 1e-05), kwargs = {})Jy
+pkg.torch.onnx.name_scopes[['', 'features', 'features.3', 'features.3.bn2', '_native_batch_norm_legit_no_training_11']J
+pkg.torch.onnx.stack_trace—File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 118, in forward
+    out = self.bn2(out)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\batchnorm.py", line 193, in forward
+    return F.batch_norm(
+æ
+
+getitem_33
+
+getitem_27add_3
+node_add_3"AddJ§
+	namespaceñ: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.3: CustomFlowerCNN.ResidualConvBlock/add_3: aten.add.TensorJß
+pkg.torch.onnx.class_hierarchyÑ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'aten.add.Tensor']Jí
+pkg.torch.onnx.fx_nodex%add_3 : [num_users=1] = call_function[target=torch.ops.aten.add.Tensor](args = (%getitem_33, %getitem_27), kwargs = {})JE
+pkg.torch.onnx.name_scopes'['', 'features', 'features.3', 'add_3']Jﬁ
+pkg.torch.onnx.stack_traceøFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 122, in forward
+    out += identity
+∏
+add_3relu_8node_relu_8"ReluJß
+	namespaceô: CustomFlowerCNN.CustomFlowerCNN/features: torch.nn.modules.container.Sequential/features.3: CustomFlowerCNN.ResidualConvBlock/relu_8: aten.relu.defaultJ©
+pkg.torch.onnx.class_hierarchyÜ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'CustomFlowerCNN.ResidualConvBlock', 'aten.relu.default']JÑ
+pkg.torch.onnx.fx_nodej%relu_8 : [num_users=1] = call_function[target=torch.ops.aten.relu.default](args = (%add_3,), kwargs = {})JF
+pkg.torch.onnx.name_scopes(['', 'features', 'features.3', 'relu_8']JÓ
+pkg.torch.onnx.stack_traceœFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 228, in forward
+    x = self.features(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 123, in forward
+    out = F.relu(out, inplace=True)
+ı
+relu_8
+val_137mean	node_mean"
+ReduceMean*
+keepdims†*
+noop_with_empty_axes †J¢
+	namespaceî: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/mean: aten.mean.dimJÆ
+pkg.torch.onnx.class_hierarchyã['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.mean.dim']Jé
+pkg.torch.onnx.fx_nodet%mean : [num_users=1] = call_function[target=torch.ops.aten.mean.dim](args = (%relu_8, [-1, -2], True), kwargs = {})J<
+pkg.torch.onnx.name_scopes['', 'head', 'head.0', 'mean']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¯one_seqn4"SequenceEmptyJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+∂¬
+rank_0
+ 
+one_seq
+indices
+one_seq_16
+indices_17n6_2"Loop*ñπ
+body2âπ
+˜
+rank_0
+itmpn2_2"SubJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+˝
+tmp
+int64_1_castjn5_2"SubJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+˝
+j
+neg_1j_tensorn6"ReshapeJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+î	
+val_138
+j_tensor
+size_dim_jn7"Gather*
+axis †J≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ï	
+val_138
+j_tensor
+rank_tensorsize_after_jn8"SliceJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ñ	
+val_139
+j_tensorstride_dim_jn9"Gather*
+axis †J≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ç	
+	indices_2
+size_after_j	indices_4n10"ExpandJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+í	
+indices
+
+size_dim_j
+int64_1_casttmp_6n15"RangeJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+Ü	
+tmp_6
+stride_dim_j	add_valuen16"MulJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+˙
+i
+indicescondn19"EqualJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+¥7
+condshape_11n20"If*∏	
+then_branch2•	
+ˇ
+
+size_dim_jshapen0_3"IdentityJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)thenGraph_39b
+shape
+
+
+†*Å%
+else_branch2Ó$
+î	
+	one_seq_1onesn0_4"ConcatFromSequence*
+axis †J≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+Ü	
+
+size_dim_jtmp_8n1_3"Cast*	
+to†J≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ç	
+tmp_8
+onesshape_9n2_3"Concat*
+axis †J≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+Ü	
+shape_9shape_10n3_3"Cast*	
+to†J≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)elseGraph_39b
+shape_10
+j
+tmp_8
+
+
+†J≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ç	
+	add_value
+shape_11add_value_12n21"ReshapeJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ã	
+	indices_4
+add_value_12
+indices_13n22"AddJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ê	
+	one_seq_1
+tmp_14
+one_seq_15n24"SequenceInsertJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+˛
+cond_incond_outn25"IdentityJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)	loop_bodyZ
+i
+ Z
+cond_in
+	 Z
+	one_seq_1Z
+	indices_2b
+cond_out
+	 b
+
+one_seq_15b
+
+indices_13j
+tmp
+ j
+j
+ j
+j_tensor
+
+
+j
+
+size_dim_j
+
+
+j
+size_after_j
+
+ j
+stride_dim_j
+
+
+j
+tmp_6
+
+ j
+	add_value
+
+ j
+cond
+	 †J≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+Ü	
+mean
+neg_1self_flattenn8_2"ReshapeJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ó	
+indices
+
+indices_17storage_offset_castn10_2"CastLikeJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ï	
+
+indices_17
+storage_offset_cast
+indices_19n11_2"AddJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+ë	
+self_flatten
+
+indices_19
+as_stridedn12_2"GatherJ≤
+	namespace§: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.0: torch.nn.modules.pooling.AdaptiveAvgPool2d/as_strided: aten.as_strided.defaultJ∏
+pkg.torch.onnx.class_hierarchyï['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.as_strided.default']J±
+pkg.torch.onnx.fx_nodeñ%as_strided : [num_users=1] = call_function[target=torch.ops.aten.as_strided.default](args = (%mean, [1, 512, 1, 1], [512, 1, 512, 512]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'head', 'head.0', 'as_strided']JÒ
+pkg.torch.onnx.stack_trace“File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\pooling.py", line 1500, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+À
+
+as_strided
+val_143view	node_view"Reshape*
+	allowzero†Jú
+	namespaceé: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.1: torch.nn.modules.flatten.Flatten/view: aten.view.defaultJ®
+pkg.torch.onnx.class_hierarchyÖ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.flatten.Flatten', 'aten.view.default']Jê
+pkg.torch.onnx.fx_nodev%view : [num_users=1] = call_function[target=torch.ops.aten.view.default](args = (%as_strided, [1, 512]), kwargs = {})J<
+pkg.torch.onnx.name_scopes['', 'head', 'head.1', 'view']JÏ
+pkg.torch.onnx.stack_traceÕFile "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\flatten.py", line 56, in forward
+    return input.flatten(self.start_dim, self.end_dim)
+û	
+view
+head.3.weight
+head.3.biaslinearnode_linear"Gemm*
+transA †*
+transB†*
+alpha  Ä?†*
+beta  Ä?†Jû
+	namespaceê: CustomFlowerCNN.CustomFlowerCNN/head: torch.nn.modules.container.Sequential/head.3: torch.nn.modules.linear.Linear/linear: aten.linear.defaultJ®
+pkg.torch.onnx.class_hierarchyÖ['CustomFlowerCNN.CustomFlowerCNN', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.linear.Linear', 'aten.linear.default']J®
+pkg.torch.onnx.fx_nodeç%linear : [num_users=1] = call_function[target=torch.ops.aten.linear.default](args = (%clone, %p_head_3_weight, %p_head_3_bias), kwargs = {})J>
+pkg.torch.onnx.name_scopes ['', 'head', 'head.3', 'linear']JË
+pkg.torch.onnx.stack_trace…File "c:\Anis\deeplearning.ai\pytorch\fundamentals\oxford-flowers-image-classification\CustomFlowerCNN.py", line 231, in forward
+    x = self.head(x)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\container.py", line 250, in forward
+    input = module(input)
+  File "c:\Anis\deeplearning.ai\pytorch\.venv\Lib\site-packages\torch\nn\modules\linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+main_graph*c@Bstem.0.weightj$
+locationcustom_flowers.onnx.dataj
+offset43928j
+length37632p*o@@Bfeatures.0.conv1.weightj$
+locationcustom_flowers.onnx.dataj
+offset212632j
+length147456p*o@@Bfeatures.0.conv2.weightj$
+locationcustom_flowers.onnx.dataj
+offset360088j
+length147456p*pÄ@Bfeatures.1.conv1.weightj$
+locationcustom_flowers.onnx.dataj
+offset716440j
+length294912p*rÄÄBfeatures.1.conv2.weightj$
+locationcustom_flowers.onnx.dataj
+offset1535640j
+length589824p*oÄ@Bfeatures.1.skip.0.weightj$
+locationcustom_flowers.onnx.dataj
+offset11160j
+length32768p*sÄÄBfeatures.2.conv1.weightj$
+locationcustom_flowers.onnx.dataj
+offset2162688j
+length1179648p*sÄÄBfeatures.2.conv2.weightj$
+locationcustom_flowers.onnx.dataj
+offset3342336j
+length2359296p*qÄÄBfeatures.2.skip.0.weightj$
+locationcustom_flowers.onnx.dataj
+offset81560j
+length131072p*sÄÄBfeatures.3.conv1.weightj$
+locationcustom_flowers.onnx.dataj
+offset5701632j
+length4718592p*tÄÄBfeatures.3.conv2.weightj$
+locationcustom_flowers.onnx.dataj
+offset10420224j
+length9437184p*sÄÄBfeatures.3.skip.0.weightj$
+locationcustom_flowers.onnx.dataj
+offset1011352j
+length524288p*bfÄBhead.3.weightj$
+locationcustom_flowers.onnx.dataj
+offset507544j
+length208896p*UfBhead.3.biasj$
+locationcustom_flowers.onnx.dataj
+offset0j
+length408p*Bval_137Jˇˇˇˇˇˇˇˇ˛ˇˇˇˇˇˇˇ*Brank_tensorJ       *Bval_143J              *õ@Bstem.0.weight_biasJÄÉRΩææ¸æ˘A=W¿ºÒûΩËl—=9Ô—æ{z>íŸØ>Ô
+´Ω—S=rc¶>k¬T>(€ΩŒ¬ˆ=c1æü
+ö>}tß>ú<>‰¨u>uù´ær`•>⁄˛˙ΩbEæ¶»=÷)>æÈã<?Dâ>'q>N˘Ø=Õ—M>töõ>‰Ï<qﬂÜ=øï>.Vì=}æ“à>§H>Ëü∑æjw—æä5æö;Ω*Lò>y∏Å>ëqä>^Xoæ9Í>=á ≥æ:>3Ü>$™}<∞®∏æ|Ù=>Bõéæ˙>i/ Ω^g!Ωh	üΩêGü=.(ÑΩÆtS>úÓ>˝>*•@Bfeatures.0.conv1.weight_biasJÄPªì?(gR?Ycπ?%Òk?Œ_}?wzw?§70?º?è∫W?™4ı>èòÇ?Ê<9?ícÍºˇ¡¿∞pJ?o7>  ?à‰%??Ev?¢ë!>4/?y|?éºé?‰ë?ëØë?◊å"ø’Â>ö øO™?tP?‡|—>ûÌ?˛/S?„⁄>Ì0l?Oîæ=Oã?ñG«æG?‡pæ?5#lø◊.Ê>o‚M>˜üæa#?¡ÖÇøΩ##øËqE?ôÛˆ> …??L∫Ç?˝¬^?≥Ùé>á70>$Åøv7ê>mt™?¨À#ø,T,ø<BÇ?ó3?◊qøLΩ??∂6Ÿ<*•@Bfeatures.0.conv2.weight_biasJÄw 
+?kB«>|$.?èPG?VÖû?è‚=:áπ>XË?ËÒ>ãzøÿND?’¯ê?ÃÉÂ>üì®øôa?{
+ø†Ø∞æÛv‘?]&ø∆O˚>Ç´Û>ã\p?s†ø.Àø\ª>}><åºü4M?ˆS> ˚l>˜V?≥ø/ø˜nÅ?›“”?Ùt±?∆‘Y?∏&)?z÷7?Ho¡æ˜_?Vıè?ùFø„Æ©?v%CøWXbæÀôÓ>9??∑√wΩ&FP?∆Å?‹Ωéøì æ5 •=ÛtBøCÁçø"≥[øpΩ–?¸ˆ?{cF?@~óæ≠—6>™?‡vº*jÄBfeatures.1.skip.0.weight_biasj$
+locationcustom_flowers.onnx.dataj
+offset408j
+length512p*iÄBfeatures.1.conv1.weight_biasj$
+locationcustom_flowers.onnx.dataj
+offset920j
+length512p*jÄBfeatures.1.conv2.weight_biasj$
+locationcustom_flowers.onnx.dataj
+offset1432j
+length512p*lÄBfeatures.2.skip.0.weight_biasj$
+locationcustom_flowers.onnx.dataj
+offset1944j
+length1024p*kÄBfeatures.2.conv1.weight_biasj$
+locationcustom_flowers.onnx.dataj
+offset2968j
+length1024p*kÄBfeatures.2.conv2.weight_biasj$
+locationcustom_flowers.onnx.dataj
+offset3992j
+length1024p*lÄBfeatures.3.skip.0.weight_biasj$
+locationcustom_flowers.onnx.dataj
+offset5016j
+length2048p*kÄBfeatures.3.conv1.weight_biasj$
+locationcustom_flowers.onnx.dataj
+offset7064j
+length2048p*kÄBfeatures.3.conv2.weight_biasj$
+locationcustom_flowers.onnx.dataj
+offset9112j
+length2048p*/Bval_138J                             */Bval_139J                             *Bneg_1Jˇˇˇˇˇˇˇˇ*BindicesJ        *Brank_0J       *Bint64_1_castJ       *Btmp_14J  Ä?Zõ
+x
+
+
+
+‡
+‡"=
+/pkg.torch.export.graph_signature.InputSpec.kind
+USER_INPUT"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNonebY
+linear
+
+
+f"?
+0pkg.torch.export.graph_signature.OutputSpec.kindUSER_OUTPUTj'
+stem.0.weight
+
+@
+
+
+j1
+features.0.conv1.weight
+
+@
+@
+
+j1
+features.0.conv2.weight
+
+@
+@
+
+j2
+features.1.conv1.weight
+
+Ä
+@
+
+j3
+features.1.conv2.weight
+
+Ä
+Ä
+
+j3
+features.1.skip.0.weight
+
+Ä
+@
+
+j3
+features.2.conv1.weight
+
+Ä
+Ä
+
+j3
+features.2.conv2.weight
+
+Ä
+Ä
+
+j4
+features.2.skip.0.weight
+
+Ä
+Ä
+
+j3
+features.3.conv1.weight
+
+Ä
+Ä
+
+j3
+features.3.conv2.weight
+
+Ä
+Ä
+
+j4
+features.3.skip.0.weight
+
+Ä
+Ä
+
+j”
+head.3.weight
+	
+f
+Ä"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"4
+!pkg.torch.onnx.original_node_namep_head_3_weightj 
+head.3.bias
+
+
+f"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"2
+!pkg.torch.onnx.original_node_namep_head_3_biasjU
+val_137
+
+
+">
+$pkg.onnxscript.optimizer.folded_from['val_135', 'val_136']jT
+rank_tensor
+
+
+"9
+$pkg.onnxscript.optimizer.folded_from['neg_1', 'rank']jU
+val_143
+
+
+">
+$pkg.onnxscript.optimizer.folded_from['val_141', 'val_142']j 
+stem.0.weight_bias
+
+
+@j*
+features.0.conv1.weight_bias
+
+
+@j*
+features.0.conv2.weight_bias
+
+
+@j,
+features.1.skip.0.weight_bias
+	
+Äj+
+features.1.conv1.weight_bias
+	
+Äj+
+features.1.conv2.weight_bias
+	
+Äj,
+features.2.skip.0.weight_bias
+	
+Äj+
+features.2.conv1.weight_bias
+	
+Äj+
+features.2.conv2.weight_bias
+	
+Äj,
+features.3.skip.0.weight_bias
+	
+Äj+
+features.3.conv1.weight_bias
+	
+Äj+
+features.3.conv2.weight_bias
+	
+Äj
+val_138
+
+
+j
+val_139
+
+
+j
+neg_1
+
+
+j
+indices
+ j
+rank_0
+ jK
+int64_1_cast
+ "3
+$pkg.onnxscript.optimizer.folded_from['int64_1']j
+tmp_14
+
+
+j!
+getitem
+
+
+@
+p
+pj
+relu
+
+
+@
+p
+pj#
+	getitem_3
+
+
+@
+p
+pj 
+relu_1
+
+
+@
+p
+pj#
+	getitem_6
+
+
+@
+p
+pj
+add
+
+
+@
+p
+pj 
+relu_2
+
+
+@
+p
+pj$
+	getitem_9
+
+
+Ä
+8
+8j%
+
+getitem_12
+
+
+Ä
+8
+8j!
+relu_3
+
+
+Ä
+8
+8j%
+
+getitem_15
+
+
+Ä
+8
+8j 
+add_1
+
+
+Ä
+8
+8j!
+relu_4
+
+
+Ä
+8
+8j%
+
+getitem_18
+
+
+Ä
+
+j%
+
+getitem_21
+
+
+Ä
+
+j!
+relu_5
+
+
+Ä
+
+j%
+
+getitem_24
+
+
+Ä
+
+j 
+add_2
+
+
+Ä
+
+j!
+relu_6
+
+
+Ä
+
+j%
+
+getitem_27
+
+
+Ä
+
+j%
+
+getitem_30
+
+
+Ä
+
+j!
+relu_7
+
+
+Ä
+
+j%
+
+getitem_33
+
+
+Ä
+
+j 
+add_3
+
+
+Ä
+
+j!
+relu_8
+
+
+Ä
+
+j
+mean
+
+
+Ä
+
+j
+one_seq"
+
+j
+self_flatten
+	
+Äj%
+
+as_strided
+
+
+Ä
+
+j
+view
+	
+
+ÄÇÏ.
+0pkg.torch.export.ExportedProgram.graph_signature∑.
+# inputs
+p_stem_0_weight: PARAMETER target='stem.0.weight'
+p_stem_1_weight: PARAMETER target='stem.1.weight'
+p_stem_1_bias: PARAMETER target='stem.1.bias'
+p_features_0_conv1_weight: PARAMETER target='features.0.conv1.weight'
+p_features_0_bn1_weight: PARAMETER target='features.0.bn1.weight'
+p_features_0_bn1_bias: PARAMETER target='features.0.bn1.bias'
+p_features_0_conv2_weight: PARAMETER target='features.0.conv2.weight'
+p_features_0_bn2_weight: PARAMETER target='features.0.bn2.weight'
+p_features_0_bn2_bias: PARAMETER target='features.0.bn2.bias'
+p_features_1_conv1_weight: PARAMETER target='features.1.conv1.weight'
+p_features_1_bn1_weight: PARAMETER target='features.1.bn1.weight'
+p_features_1_bn1_bias: PARAMETER target='features.1.bn1.bias'
+p_features_1_conv2_weight: PARAMETER target='features.1.conv2.weight'
+p_features_1_bn2_weight: PARAMETER target='features.1.bn2.weight'
+p_features_1_bn2_bias: PARAMETER target='features.1.bn2.bias'
+p_features_1_skip_0_weight: PARAMETER target='features.1.skip.0.weight'
+p_features_1_skip_1_weight: PARAMETER target='features.1.skip.1.weight'
+p_features_1_skip_1_bias: PARAMETER target='features.1.skip.1.bias'
+p_features_2_conv1_weight: PARAMETER target='features.2.conv1.weight'
+p_features_2_bn1_weight: PARAMETER target='features.2.bn1.weight'
+p_features_2_bn1_bias: PARAMETER target='features.2.bn1.bias'
+p_features_2_conv2_weight: PARAMETER target='features.2.conv2.weight'
+p_features_2_bn2_weight: PARAMETER target='features.2.bn2.weight'
+p_features_2_bn2_bias: PARAMETER target='features.2.bn2.bias'
+p_features_2_skip_0_weight: PARAMETER target='features.2.skip.0.weight'
+p_features_2_skip_1_weight: PARAMETER target='features.2.skip.1.weight'
+p_features_2_skip_1_bias: PARAMETER target='features.2.skip.1.bias'
+p_features_3_conv1_weight: PARAMETER target='features.3.conv1.weight'
+p_features_3_bn1_weight: PARAMETER target='features.3.bn1.weight'
+p_features_3_bn1_bias: PARAMETER target='features.3.bn1.bias'
+p_features_3_conv2_weight: PARAMETER target='features.3.conv2.weight'
+p_features_3_bn2_weight: PARAMETER target='features.3.bn2.weight'
+p_features_3_bn2_bias: PARAMETER target='features.3.bn2.bias'
+p_features_3_skip_0_weight: PARAMETER target='features.3.skip.0.weight'
+p_features_3_skip_1_weight: PARAMETER target='features.3.skip.1.weight'
+p_features_3_skip_1_bias: PARAMETER target='features.3.skip.1.bias'
+p_head_3_weight: PARAMETER target='head.3.weight'
+p_head_3_bias: PARAMETER target='head.3.bias'
+b_stem_1_running_mean: BUFFER target='stem.1.running_mean' persistent=True
+b_stem_1_running_var: BUFFER target='stem.1.running_var' persistent=True
+b_stem_1_num_batches_tracked: BUFFER target='stem.1.num_batches_tracked' persistent=True
+b_features_0_bn1_running_mean: BUFFER target='features.0.bn1.running_mean' persistent=True
+b_features_0_bn1_running_var: BUFFER target='features.0.bn1.running_var' persistent=True
+b_features_0_bn1_num_batches_tracked: BUFFER target='features.0.bn1.num_batches_tracked' persistent=True
+b_features_0_bn2_running_mean: BUFFER target='features.0.bn2.running_mean' persistent=True
+b_features_0_bn2_running_var: BUFFER target='features.0.bn2.running_var' persistent=True
+b_features_0_bn2_num_batches_tracked: BUFFER target='features.0.bn2.num_batches_tracked' persistent=True
+b_features_1_bn1_running_mean: BUFFER target='features.1.bn1.running_mean' persistent=True
+b_features_1_bn1_running_var: BUFFER target='features.1.bn1.running_var' persistent=True
+b_features_1_bn1_num_batches_tracked: BUFFER target='features.1.bn1.num_batches_tracked' persistent=True
+b_features_1_bn2_running_mean: BUFFER target='features.1.bn2.running_mean' persistent=True
+b_features_1_bn2_running_var: BUFFER target='features.1.bn2.running_var' persistent=True
+b_features_1_bn2_num_batches_tracked: BUFFER target='features.1.bn2.num_batches_tracked' persistent=True
+b_features_1_skip_1_running_mean: BUFFER target='features.1.skip.1.running_mean' persistent=True
+b_features_1_skip_1_running_var: BUFFER target='features.1.skip.1.running_var' persistent=True
+b_features_1_skip_1_num_batches_tracked: BUFFER target='features.1.skip.1.num_batches_tracked' persistent=True
+b_features_2_bn1_running_mean: BUFFER target='features.2.bn1.running_mean' persistent=True
+b_features_2_bn1_running_var: BUFFER target='features.2.bn1.running_var' persistent=True
+b_features_2_bn1_num_batches_tracked: BUFFER target='features.2.bn1.num_batches_tracked' persistent=True
+b_features_2_bn2_running_mean: BUFFER target='features.2.bn2.running_mean' persistent=True
+b_features_2_bn2_running_var: BUFFER target='features.2.bn2.running_var' persistent=True
+b_features_2_bn2_num_batches_tracked: BUFFER target='features.2.bn2.num_batches_tracked' persistent=True
+b_features_2_skip_1_running_mean: BUFFER target='features.2.skip.1.running_mean' persistent=True
+b_features_2_skip_1_running_var: BUFFER target='features.2.skip.1.running_var' persistent=True
+b_features_2_skip_1_num_batches_tracked: BUFFER target='features.2.skip.1.num_batches_tracked' persistent=True
+b_features_3_bn1_running_mean: BUFFER target='features.3.bn1.running_mean' persistent=True
+b_features_3_bn1_running_var: BUFFER target='features.3.bn1.running_var' persistent=True
+b_features_3_bn1_num_batches_tracked: BUFFER target='features.3.bn1.num_batches_tracked' persistent=True
+b_features_3_bn2_running_mean: BUFFER target='features.3.bn2.running_mean' persistent=True
+b_features_3_bn2_running_var: BUFFER target='features.3.bn2.running_var' persistent=True
+b_features_3_bn2_num_batches_tracked: BUFFER target='features.3.bn2.num_batches_tracked' persistent=True
+b_features_3_skip_1_running_mean: BUFFER target='features.3.skip.1.running_mean' persistent=True
+b_features_3_skip_1_running_var: BUFFER target='features.3.skip.1.running_var' persistent=True
+b_features_3_skip_1_num_batches_tracked: BUFFER target='features.3.skip.1.num_batches_tracked' persistent=True
+x: USER_INPUT
+
+# outputs
+linear: USER_OUTPUT
+Ç8
+2pkg.torch.export.ExportedProgram.range_constraints{}B
+ 
